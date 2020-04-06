@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Hash;
+use App\Models\User;
 
 class AdminSeeder extends Seeder
 {
@@ -15,7 +17,7 @@ class AdminSeeder extends Seeder
             'name' => 'test admin',
             'email' => 'admin@example.com',
             'email_verified_at' => \Carbon\Carbon::now(),
-            'password' => hash('123456'),
+            'password' => Hash::make('123456'),
         ]);
 
         $user->assignRole('admin');
