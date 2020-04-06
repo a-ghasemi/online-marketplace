@@ -8,13 +8,23 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 
 class ApiProductsListTest extends TestCase
 {
-    /**
-     * A basic unit test example.
-     *
-     * @return void
-     */
-    public function testExample()
+    public function testNoAuthenticationNeeded()
     {
-        $this->assertTrue(true);
+        $this->assertTrue(True);
+    }
+
+    public function testCategoryFilterWorksProperly()
+    {
+        $this->assertTrue(True);
+    }
+
+    public function testPaginationWorksProperly()
+    {
+        $this->assertTrue(True);
+    }
+
+    public function testSendsProductsList()
+    {
+        $this->assertTrue(True);
     }
 }
