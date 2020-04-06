@@ -14,12 +14,14 @@
 Auth::routes();
 
 Route::get('/', 'HomeController@mainPage')->name('mainpage');
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/logout', 'Auth\LoginController@logout')->middleware('auth')->name('logout');
 
 Route::name('admin_panel.')
     ->prefix('panel')
     ->namespace('AdminPanel')
     ->middleware('role:admin')
     ->group(function () {
+        Route::get('/home', 'HomeController@index')->name('home');
+        Route::get('/upload', 'CsvController@create')->name('csv.create');
         Route::post('/upload', 'CsvController@upload')->name('csv.upload');
     });
