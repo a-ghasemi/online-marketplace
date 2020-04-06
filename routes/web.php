@@ -14,3 +14,11 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::name('admin_panel.')
+    ->prefix('panel')
+    ->namespace('AdminPanel')
+    ->middleware('role:admin')
+    ->group(function () {
+        Route::post('/upload', 'CsvController@upload')->name('csv.upload');
+    });

@@ -27,7 +27,16 @@ class UploadCSVTest extends TestCase
 
     public function testUploadFile()
     {
-        $this->assertTrue(True);
+        //Arrange
+        Storage::fake('csv_file');
+
+        //Act
+        $this->json('POST', route('admin_panel.csv.upload'), [
+            'file' => UploadedFile::fake()->create('test.csv')
+        ]);
+
+        //Assert
+        Storage::assertExists('test.csv');
     }
 
 }
