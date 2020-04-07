@@ -21,5 +21,7 @@ class AdminSeeder extends Seeder
         ]);
 
         $user->assignRole('admin');
+
+        $user->createToken('Laratoken')->accessToken;
     }
 }

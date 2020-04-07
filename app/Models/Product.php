@@ -13,6 +13,8 @@ class Product extends Model
         'description',
     ];
 
+    protected $hidden = ['quantityRecord'];
+
     protected $appends = [
         'quantity',
     ];

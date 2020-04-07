@@ -23,11 +23,15 @@ class CreateProductsTable extends Migration
             $table->text('description')->nullable()->default(NULL);
             $table->timestamps();
 
+/*
+ * /TODO:Activate after Mariadb upgrade
+ *
             $table
                 ->foreign('cat_id')
                 ->refrences('id')
                 ->on('product_categories')
                 ->onDelete('cascade');
+*/
         });
 
         Schema::create('product_quantities', function (Blueprint $table) {
