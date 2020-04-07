@@ -5,7 +5,7 @@
 @section('content')
     <a href="{{ route('admin_panel.home') }}">[X]&nbsp;Cancel</a>
     <hr/>
-    <form action="{{route('admin_panel.csv.upload')}}" method="post" >
+    <form action="{{route('admin_panel.csv.upload')}}" method="post" enctype="multipart/form-data">
         @csrf
 
         <b>File: </b>

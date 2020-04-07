@@ -16,6 +16,7 @@ Auth::routes();
 Route::get('/', 'HomeController@mainPage')->name('mainpage');
 Route::get('/logout', 'Auth\LoginController@logout')->middleware('auth')->name('logout');
 
+
 Route::name('admin_panel.')
     ->prefix('panel')
     ->namespace('AdminPanel')

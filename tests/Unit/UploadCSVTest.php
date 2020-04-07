@@ -3,23 +3,15 @@
 namespace Tests\Unit;
 
 use App\Models\User;
-use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\Storage;
 use Spatie\Permission\Models\Role;
 use Tests\TestCase;
-use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 
 class UploadCSVTest extends TestCase
 {
-//    use DatabaseMigrations;
     use RefreshDatabase;
-
-    public function testCreateTableRecordAfterSuccessUpload()
-    {
-        $this->assertTrue(True);
-    }
 
     public function testValidateContent()
     {
@@ -34,18 +26,20 @@ class UploadCSVTest extends TestCase
     public function testUploadFile()
     {
         //Arrange
-        Storage::fake('csv_file');
-        $fake_admin = factory(User::class)->make();
-        Role::create(['name' => 'admin']);
-        $fake_admin->assignRole('admin');
-        $filename = sprintf("%s%d.csv",'test',rand(100,999));
+        $fake_admin = factory(User::class)->create();
+        $role = Role::create(['name' => 'admin']);
+        $fake_admin->assignRole($role);
+        $time = time();
+        $filename = sprintf("%d.csv", $time);
 
         //Act
+        $file = UploadedFile::fake()->create($filename, 100);
         $this->actingAs($fake_admin)
-            ->json('POST', route('admin_panel.csv.upload'), [
-            'file' => UploadedFile::fake()->create($filename)
-        ]);
-        $filename = sprintf("%s/%s", date('Y-m-d', time()), time() . $filename);
+            ->post(route('admin_panel.csv.upload'), [
+                'file' => $file
+            ]);
+        $file_extension = substr($filename,strrpos($filename,'.'));
+        $filename = sprintf("%s/%s%s", date('Y-m-d', $time), $time, $file_extension );
 
         //Assert
         Storage::disk('local')->assertExists($filename);

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\AdminPanel;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Storage;
 
 class CsvController extends Controller
@@ -17,7 +18,9 @@ class CsvController extends Controller
     public function upload(Request $request)
     {
         $uploadedFile = $request->file('file');
-        $filename = time() . $uploadedFile->getClientOriginalName();
+        $filename = $uploadedFile->getClientOriginalName();
+        $file_extension = substr($filename,strrpos($filename,'.'));
+        $filename = time() . $file_extension;
 
         Storage::disk('local')->putFileAs(
             sprintf("%s/%s", date('Y-m-d', time()), $filename),
@@ -25,8 +28,9 @@ class CsvController extends Controller
             $filename
         );
 
+
         //TODO:We have to record file upload with current permission in a database table
 
-        return response('File Uploaded Successfully',200);
+        return redirect()->route('admin_panel.home')->with('message','CSV File Upload Successfully');
     }
 }

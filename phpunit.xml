@@ -7,7 +7,7 @@
          convertNoticesToExceptions="true"
          convertWarningsToExceptions="true"
          processIsolation="false"
-         stopOnFailure="true">
+         stopOnFailure="false">
     <testsuites>
         <testsuite name="Unit">
             <directory suffix="Test.php">./tests/Unit</directory>
@@ -29,8 +29,7 @@
         <server name="MAIL_DRIVER" value="array"/>
         <server name="QUEUE_CONNECTION" value="sync"/>
         <server name="SESSION_DRIVER" value="array"/>
-        <server name="DB_DATABASE" value="onlinemarket_db_tst"/>
-        <server name="DB_USERNAME" value="onlinemarket_usr"/>
-        <server name="DB_PASSWORD" value="VuhzsUy7wENX3xiv"/>
+        <server name="DB_CONNECTION" value="sqlite"/>
+        <server name="DB_DATABASE" value=":memory:"/>
     </php>
 </phpunit>
