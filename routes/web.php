@@ -25,4 +25,7 @@ Route::name('admin_panel.')
         Route::get('/home', 'HomeController@index')->name('home');
         Route::get('/upload', 'CsvController@create')->name('csv.create');
         Route::post('/upload', 'CsvController@upload')->name('csv.upload');
+
+        Route::resource('product','ProductController');
+        Route::resource('product_category','ProductCategoryController');
     });

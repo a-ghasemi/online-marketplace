@@ -1,7 +1,8 @@
 @php
     $items = [
         'admin_panel.home' => 'Home',
-        'admin_panel.csv.create' => 'CSV',
+        'admin_panel.product_category.index' => 'Categories',
+        'admin_panel.product.index' => 'Products',
     ];
 @endphp
 
