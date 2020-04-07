@@ -17,11 +17,16 @@ class CreateProductsTable extends Migration
             $table->engine = "MyISAM";
 
             $table->bigIncrements('id');
-            $table->unsignedInteger('cat_id');
+            $table->unsignedInteger('cat_id')->length(10);
             $table->string('title');
             $table->unsignedBigInteger('price');
             $table->text('description')->nullable()->default(NULL);
             $table->timestamps();
+
+            $table->foreign('cat_id')
+                ->refrences('id')
+                ->on('product_categories')
+                ->onDelete('cascade');
         });
 
         Schema::create('product_quantities', function (Blueprint $table) {
