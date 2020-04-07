@@ -5,8 +5,8 @@ composer install --prefer-dist --no-ansi --no-interaction --no-progress --no-scr
 cp .env.example .env
 php artisan key:generate
 php artisan storage:link
-php artisan storage:link
-echo "*** Prepare DB connection and then run [envoy run fresh_db]\r\n"
+echo "** Prepare DB connection and then run [envoy run fresh_db]\r\n"
+echo "*** After all run [php artisan passport:install]\r\n"
 @endtask
 
 @story('fresh_db')

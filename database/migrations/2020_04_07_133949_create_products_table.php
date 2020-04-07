@@ -23,7 +23,8 @@ class CreateProductsTable extends Migration
             $table->text('description')->nullable()->default(NULL);
             $table->timestamps();
 
-            $table->foreign('cat_id')
+            $table
+                ->foreign('cat_id')
                 ->refrences('id')
                 ->on('product_categories')
                 ->onDelete('cascade');
