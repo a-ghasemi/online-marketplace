@@ -10,6 +10,7 @@
 # Some Features
 
 ## Migration & Seeding
+
 This project uses **Migration & Seeding** to generate Database
 
 After Setup, you have your `Admin` on:
@@ -17,6 +18,7 @@ After Setup, you have your `Admin` on:
 * password: `123456`
 
 ##Envoy
+
 This project uses **Envoy** to run quickly complete commands
 
 If you have Envoy installed in your system, just run `envoy run setup` at start
@@ -24,11 +26,13 @@ Then make your access to your database and set DB parameters in `.env`
 And after all run `envoy run fresh_db`
 
 ##Swagger
+
 This project uses **Swagger** to define API endpoints
 
 You have to browse to `[BASE_URL]/api/documentation` to find this document
 
 ## Unit Tests
+
 This project uses **Unit Tests** to check some functionalities
 
 Run `./vendor/bin/phpunit` to this checks
@@ -36,6 +40,7 @@ Run `./vendor/bin/phpunit` to this checks
 Some tests are designed and not implemented and are in `TODO` list
 
 ## JWT Authentication on OAuth2 by Laravel/Passport
+
 This Project has passport on its endpoints
 
 Don't forget to run `php artisan passport:install` to setup this attribute
