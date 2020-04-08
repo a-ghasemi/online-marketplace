@@ -1,6 +1,9 @@
 @php
     $items = [
         'admin_panel.home' => 'Home',
+        'sep1' => NULL,
+        'admin_panel.user.index' => 'Users',
+        'sep2' => NULL,
         'admin_panel.product_category.index' => 'Categories',
         'admin_panel.product.index' => 'Products',
     ];

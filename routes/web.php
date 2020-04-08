@@ -26,6 +26,8 @@ Route::name('admin_panel.')
         Route::get('/upload', 'CsvController@create')->name('csv.create');
         Route::post('/upload', 'CsvController@upload')->name('csv.upload');
 
+        Route::resource('user','UserController');
+
         Route::resource('product','ProductController');
         Route::resource('product_category','ProductCategoryController');
     });
