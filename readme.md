@@ -7,14 +7,38 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
 </p>
 
-## About Online Market Project
+# Some Features
 
-This is a testcase project.
+## Migration & Seeding
+This project uses **Migration & Seeding** to generate Database
 
-## Features
+After Setup, you have your `Admin` on:
+* email: `admin@example.com`
+* password: `123456`
 
-- This project uses **Envoy** to run quickly complete commands
-- This project uses **Swagger** to define API endpoints
+##Envoy
+This project uses **Envoy** to run quickly complete commands
+
+If you have Envoy installed in your system, just run `envoy run setup` at start
+Then make your access to your database and set DB parameters in `.env`
+And after all run `envoy run fresh_db`
+
+##Swagger
+This project uses **Swagger** to define API endpoints
+
+You have to browse to `[BASE_URL]/api/documentation` to find this document
+
+## Unit Tests
+This project uses **Unit Tests** to check some functionalities
+
+Run `./vendor/bin/phpunit` to this checks
+
+Some tests are designed and not implemented and are in `TODO` list
+
+## JWT Authentication on OAuth2 by Laravel/Passport
+This Project has passport on its endpoints
+
+Don't forget to run `php artisan passport:install` to setup this attribute
 
 ## Contributing
 
