@@ -17,7 +17,7 @@ After Setup, you have your `Admin` on:
 * email: `admin@example.com`
 * password: `123456`
 
-## Envoy
+## Envoy & Easy Installation
 
 This project uses **Envoy** to run quickly complete commands
 
@@ -44,6 +44,10 @@ Some tests are designed and not implemented and are in `TODO` list
 This Project has passport on its endpoints
 
 Don't forget to run `php artisan passport:install` to setup this attribute
+
+## Postman API Collection
+
+If you want get 
 
 ## Contributing
 

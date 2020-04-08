@@ -3,6 +3,7 @@
 @task('setup')
 composer install --prefer-dist --no-ansi --no-interaction --no-progress --no-scripts
 cp .env.example .env
+chmod 777 -R storage/
 php artisan key:generate
 php artisan storage:link
 echo "** Prepare DB connection and then run [envoy run fresh_db]\r\n"
