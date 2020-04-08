@@ -16,9 +16,11 @@ Route::get('ping', 'PassportController@ping');
 Route::post('register', 'PassportController@register');
 Route::post('login', 'PassportController@login');
 
-Route::get('products', 'Api\v1\ProductController@index');
+Route::prefix('v1')->group(function(){
+    Route::get('products', 'Api\v1\ProductController@index');
 
-Route::middleware('auth:api')->group(function () {
-    Route::get('user', 'PassportController@details');
+    Route::middleware('auth:api')->group(function () {
+        Route::get('user', 'PassportController@details');
+    });
 });
 

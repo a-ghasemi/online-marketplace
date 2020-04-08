@@ -1,0 +1,169 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Laravel OpenApi Online Market Documentation",
+        "description": "Online Market Place",
+        "contact": {
+            "email": "admin@example.com"
+        },
+        "version": "1.0.0"
+    },
+    "servers": [
+        {
+            "url": "http://omarket.local/api",
+            "description": "API Server"
+        }
+    ],
+    "paths": {
+        "/v1/products": {
+            "get": {
+                "tags": [
+                    "Products"
+                ],
+                "summary": "Get paginated list of products",
+                "description": "Returns paginated list of products",
+                "operationId": "getProductsList",
+                "parameters": [
+                    {
+                        "name": "page",
+                        "in": "path",
+                        "description": "Page number",
+                        "required": false,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "filter",
+                        "in": "path",
+                        "description": "Category title | Shows filtered list",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    }
+                }
+            }
+        },
+        "/ping": {
+            "get": {
+                "tags": [
+                    "Connectivity"
+                ],
+                "summary": "Get PingPong Test",
+                "description": "Returns pong",
+                "operationId": "getPingPongTest",
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    }
+                }
+            }
+        },
+        "/register": {
+            "post": {
+                "tags": [
+                    "Authentication"
+                ],
+                "summary": "Registers new device",
+                "description": "Registers new device",
+                "operationId": "registerNewDevice",
+                "parameters": [
+                    {
+                        "name": "name",
+                        "in": "path",
+                        "description": "User's fullname",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "email",
+                        "in": "path",
+                        "description": "User's Email Address",
+                        "required": true,
+                        "schema": {
+                            "type": "string | email"
+                        }
+                    },
+                    {
+                        "name": "password",
+                        "in": "path",
+                        "description": "Authentication's Password",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Returns Access Token"
+                    }
+                }
+            }
+        },
+        "/login": {
+            "post": {
+                "tags": [
+                    "Authentication"
+                ],
+                "summary": "Logins device",
+                "description": "Logins device",
+                "operationId": "loginDevice",
+                "parameters": [
+                    {
+                        "name": "email",
+                        "in": "path",
+                        "description": "User's Email Address",
+                        "required": true,
+                        "schema": {
+                            "type": "string | email"
+                        }
+                    },
+                    {
+                        "name": "password",
+                        "in": "path",
+                        "description": "Authentication's Password",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Returns Access Token"
+                    }
+                }
+            }
+        },
+        "/v1/user": {
+            "get": {
+                "tags": [
+                    "User Actions"
+                ],
+                "summary": "Shows logged-in user info",
+                "description": "Shows logged-in user info",
+                "operationId": "userInfo",
+                "responses": {
+                    "200": {
+                        "description": "logged-in user info details"
+                    }
+                }
+            }
+        }
+    },
+    "tags": [
+        {
+            "name": "Projects",
+            "description": "API Endpoints of Projects"
+        }
+    ]
+}
